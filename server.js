@@ -3,17 +3,33 @@ if (!process.env.PORT) {
   process.env.NODE_ENV = "dev"
 }
 
+// MIDDLEWARE
+// web framework - handles requests from different url paths (routes), enables
+// POST, GET, DELETE and more, serves static files, and allows templates to be
+// used to dynamically create the response
+// https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
 const express = require('express');
+// The path module provides utilities for working with file and directory paths.
+// https://nodejs.org/api/path.html
 const path = require('path');
+// A favicon is a visual cue that client software, like browsers, use to identify a site.
+// https://expressjs.com/en/resources/middleware/serve-favicon.html
 const favicon = require('serve-favicon');
+// morgan allows easy logging of requests, errors, and more to the console
 const logger = require('morgan');
+// cookie-parser makes it possible to read, send, and review cookies
+// https://videlais.com/2020/03/02/working-with-cookies-in-node-express-using-cookie-parser/
 const cookieParser = require('cookie-parser');
+// bodyParser handles HTTP POST requests
 const bodyParser = require('body-parser');
+// methodOverride lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
 const methodOverride = require('method-override')
+
 
 const app = express();
 
 const mongoose = require('mongoose');
+// handles connecting to the MongoDB database
 mongoose.connect('mongodb://localhost/petes-pets');
 
 // view engine setup
