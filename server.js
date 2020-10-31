@@ -30,7 +30,8 @@ const app = express();
 
 const mongoose = require('mongoose');
 // handles connecting to the MongoDB database
-mongoose.connect('mongodb://localhost/petes-pets');
+mongoose.connect('mongodb://localhost/petes-pets', { useNewUrlParser: true });
+mongoose.set('useUnifiedTopology', true);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
