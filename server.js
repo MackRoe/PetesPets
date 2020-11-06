@@ -25,7 +25,6 @@ const bodyParser = require('body-parser');
 // methodOverride lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
 const methodOverride = require('method-override')
 
-
 const app = express();
 
 const mongoose = require('mongoose');
