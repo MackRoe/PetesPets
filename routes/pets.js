@@ -3,6 +3,8 @@ const Pet = require('../models/pet');
 
 const mailer = require('../utils/mailer');
 
+// const purchase = require('../utils/purchase')
+
 // PET ROUTES
 module.exports = (app) => {
 
@@ -75,7 +77,7 @@ module.exports = (app) => {
           res.render('pets-index', { pets: results.docs, pagesCount: results.pages, currentPage: page, term: req.query.term });
         });
     });
-    
+
   // PURCHASE
     app.post('/pets/:id/purchase', (req, res) => {
     console.log(req.body);
@@ -115,5 +117,9 @@ module.exports = (app) => {
         console.log('Error: ' + err);
       });
     })
+  });
+
+  app.post('/pets/:id/purchase', (req,res) => {
+      console.log(`purchase body: ${req.body}`);
   });
 }
